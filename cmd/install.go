@@ -13,7 +13,7 @@ const tokenFile = "token.txt"
 
 var installCmd = &cobra.Command{
 	Use:   "install",
-	Short: "Install the GPT3.5 token",
+	Short: "Install the OpenAI token",
 	Run: func(cmd *cobra.Command, args []string) {
 		// Store the token in a file
 		err := os.WriteFile(tokenFile, []byte(token), 0644)
@@ -28,6 +28,6 @@ var installCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(installCmd)
-	installCmd.Flags().StringVarP(&token, "token", "t", "", "GPT3.5 token")
+	installCmd.Flags().StringVarP(&token, "token", "t", "", "OpenAI token")
 	installCmd.MarkFlagRequired("token")
 }
